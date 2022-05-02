@@ -3,11 +3,11 @@
     <info version="0.0.1"/>
     <tutorials>
         <tutorial tutorialID="0" tutorialName="Tutorial_" canSkip="false">
-            <tutorialStep stepIndex="0" textKey="Key_1" textPosition="TopLeft" arrowIndex="1" speakerAvatarName="anna" hasFadePanel="True" hasOkButton="False"/>
-            <tutorialStep stepIndex="1" textKey="Key_2" textPosition="TopRight" arrowIndex="2" speakerAvatarName="anna" hasFadePanel="False" hasOkButton="False"/>
-            <tutorialStep stepIndex="2" textKey="Key_3" textPosition="Middle" arrowIndex="3" speakerAvatarName="anna" hasFadePanel="True" hasOkButton="False"/>
-            <tutorialStep stepIndex="3" textKey="Key_4" textPosition="BottomLeft" arrowIndex="4" speakerAvatarName="anna" hasFadePanel="False" hasOkButton="False"/>
-            <tutorialStep stepIndex="4" textKey="Key_5" textPosition="BottomRight" arrowIndex="5" speakerAvatarName="anna" hasFadePanel="True" hasOkButton="False"/>
+            <tutorialStep stepIndex="0" textKey="Key_1" textPosition="TopLeft" arrowIndex="1" speakerAvatarName="0" hasFadePanel="True" hasOkButton="True"/>
+            <tutorialStep stepIndex="1" textKey="Key_2" textPosition="TopRight" arrowIndex="1" speakerAvatarName="1" hasFadePanel="False" hasOkButton="True"/>
+            <tutorialStep stepIndex="2" textKey="Key_3" textPosition="Middle" arrowIndex="1" speakerAvatarName="2" hasFadePanel="True" hasOkButton="True"/>
+            <tutorialStep stepIndex="3" textKey="Key_4" textPosition="BottomLeft" arrowIndex="1" speakerAvatarName="3" hasFadePanel="False" hasOkButton="True"/>
+            <tutorialStep stepIndex="4" textKey="Key_5" textPosition="BottomRight" arrowIndex="1" speakerAvatarName="4" hasFadePanel="True" hasOkButton="True"/>
         </tutorial>
     </tutorials>
 </tutorialPresets>

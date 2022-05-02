@@ -26,6 +26,12 @@ namespace TutorialProject.Infrastructure.TutorialSystem.TutorialDataBase
                 m_cashedTutorialData.AddRange(tempData);
         }
 
+        public void Dispose()
+        {
+            m_xmlFileReader.Dispose();
+            m_cashedTutorialData.Clear();
+        }
+
         public TutorialDataModel GetTutorial(int tutorialID)
         {
             return m_cashedTutorialData.Find(it => it.TutorialID == tutorialID);

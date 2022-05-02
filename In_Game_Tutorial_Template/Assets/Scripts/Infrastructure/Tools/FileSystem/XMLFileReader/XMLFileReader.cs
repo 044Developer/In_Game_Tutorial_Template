@@ -20,6 +20,10 @@ namespace TutorialProject.Infrastructure.Tools.FileSystem.XMLFileReader
             m_xmlDocument = new XmlDocument();
         }
 
+        public void Dispose()
+        {
+        }
+
         public List<TutorialDataModel> ReadXMLTutorialModels()
         {
             List<TutorialDataModel> result = new List<TutorialDataModel>();
@@ -79,7 +83,7 @@ namespace TutorialProject.Infrastructure.Tools.FileSystem.XMLFileReader
                 var textKeyAttribute = ReturnNodeAttribute(tutorialSteps[i],"textKey");
                 var textPositionAttribute = ReturnNodeAttribute(tutorialSteps[i],"textPosition");
                 var arrowIndexAttribute = ReturnNodeAttribute(tutorialSteps[i],"arrowIndex");
-                var speakerAvatarNameAttribute = ReturnNodeAttribute(tutorialSteps[i],"speakerAvatarName");
+                var speakerAvatarIDAttribute = ReturnNodeAttribute(tutorialSteps[i],"speakerAvatarName");
                 var hasFadePanelAttribute = ReturnNodeAttribute(tutorialSteps[i],"hasFadePanel");
                 var hasOkButtonAttribute = ReturnNodeAttribute(tutorialSteps[i],"hasOkButton");
 
@@ -87,7 +91,7 @@ namespace TutorialProject.Infrastructure.Tools.FileSystem.XMLFileReader
                 string textKey = string.Empty;
                 TutorialTextPosition textPosition = TutorialTextPosition.None;
                 int arrowIndex = -1;
-                string speakerAvatarName = string.Empty;
+                int speakerAvatarID = 0;
                 bool hasFadePanel = false;
                 bool hasOkButton = false;
 
@@ -99,14 +103,14 @@ namespace TutorialProject.Infrastructure.Tools.FileSystem.XMLFileReader
                     Enum.TryParse(textPositionAttribute.Value, out textPosition);
                 if (arrowIndexAttribute != null)
                     int.TryParse(arrowIndexAttribute.Value, out arrowIndex);
-                if (speakerAvatarNameAttribute != null)
-                    speakerAvatarName = speakerAvatarNameAttribute.Value;
+                if (speakerAvatarIDAttribute != null)
+                    int.TryParse(speakerAvatarIDAttribute.Value, out speakerAvatarID);
                 if (hasFadePanelAttribute != null)
                     bool.TryParse(hasFadePanelAttribute.Value, out hasFadePanel);
                 if (hasOkButtonAttribute != null)
                     bool.TryParse(hasOkButtonAttribute.Value, out hasOkButton);
 
-                var stepData = new TutorialStepData(stepIndex, textKey, textPosition, arrowIndex, speakerAvatarName,
+                var stepData = new TutorialStepData(stepIndex, textKey, textPosition, arrowIndex, speakerAvatarID,
                     hasFadePanel, hasOkButton);
                 tutorialStepDataList.Add(stepData);
             }

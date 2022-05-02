@@ -6,7 +6,7 @@ namespace TutorialProject.Infrastructure.TutorialSystem.Data.Models
         public string DialogueTextKey { get; }
         public TutorialTextPosition TextPosition { get; }
         public int ArrowIndexID { get; }
-        public string SpeakerAvatarName { get; }
+        public int SpeakerAvatarID { get; }
         public bool HasFadePanel { get; }
         public bool HasOkButton { get; }
 
@@ -14,14 +14,14 @@ namespace TutorialProject.Infrastructure.TutorialSystem.Data.Models
         (
             int stepIndex = 0, string dialogueTextKey = "",
             TutorialTextPosition textPosition = TutorialTextPosition.None,
-            int arrowIndexID = -1, string speakerAvatarName = "",
+            int arrowIndexID = -1, int speakerAvatarID = 0,
             bool hasFadePanel = true, bool hasOkButton = false)
         {
             StepIndex = stepIndex;
             DialogueTextKey = dialogueTextKey;
             TextPosition = textPosition;
             ArrowIndexID = arrowIndexID;
-            SpeakerAvatarName = speakerAvatarName;
+            SpeakerAvatarID = speakerAvatarID;
             HasFadePanel = hasFadePanel;
             HasOkButton = hasOkButton;
         }
