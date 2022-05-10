@@ -23,15 +23,6 @@ namespace TutorialProject.UI.TutorialPanel
             DisposeButtons();
         }
 
-        private void Update()
-        {
-            if(Input.GetKeyDown(KeyCode.A))
-                TriggerTutorial(0);
-        }
-
-        public void TriggerTutorial(int tutorialID) => 
-            m_tutorialSystemController.StartTutorial(tutorialID);
-
         private void InitializeButtons() => 
             m_tutorialPanelModel.ExecuteStepButton.onClick.AddListener(m_tutorialSystemController.ProceedWithNextTutorialStep);
 

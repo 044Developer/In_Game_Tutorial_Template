@@ -9,7 +9,7 @@ namespace TutorialProject.Infrastructure.TutorialSystem.Data.Models
         public bool CanSkip { get; }
         public List<TutorialStepData> TutorialSteps { get; }
 
-        public TutorialDataModel(int tutorialID, string tutorialName, bool canSkip, List<TutorialStepData> tutorialSteps)
+        public TutorialDataModel(int tutorialID = -1, string tutorialName = "", bool canSkip = false, List<TutorialStepData> tutorialSteps = null)
         {
             TutorialID = tutorialID;
             TutorialName = tutorialName;

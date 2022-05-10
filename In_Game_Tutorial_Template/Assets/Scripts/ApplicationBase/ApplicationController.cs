@@ -1,4 +1,5 @@
-﻿using TutorialProject.Infrastructure.TutorialSystem.Controller;
+﻿using TutorialProject.Infrastructure.ApplicationEvents;
+using TutorialProject.Infrastructure.TutorialSystem.Controller;
 using TutorialProject.Infrastructure.TutorialSystem.TutorialDataBase;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace TutorialProject.ApplicationBase
         
         public TutorialSystemController TutorialSystemController { get; private set; }
         public ITutorialDataBase TutorialDataBase { get; private set; }
+        public EventHolder EventHolder { get; private set; }
         
         private void Awake()
         {
@@ -28,6 +30,7 @@ namespace TutorialProject.ApplicationBase
 
         private void InitializeApplication()
         {
+            EventHolder = new EventHolder();
             TutorialDataBase = new TutorialDataBaseHolder();
             TutorialSystemController = new TutorialSystemController(TutorialDataBase);
         }

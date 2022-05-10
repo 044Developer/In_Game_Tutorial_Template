@@ -1,3 +1,4 @@
+using TutorialProject.Infrastructure.TutorialSystem.Controller;
 using TutorialProject.Infrastructure.TutorialSystem.Data.Models;
 using TutorialProject.UI.TutorialPanel.Model;
 using UnityEngine;
@@ -10,13 +11,13 @@ namespace TutorialProject.Infrastructure.TutorialSystem.Commands
         
         private readonly TutorialDataModel m_tutorialDataModel;
         private readonly TutorialPanelModel m_tutorialPanelModel;
-        private readonly TutorialSystemModel m_tutorialSystemModel;
+        private readonly TutorialSystemController m_tutorialSystemController;
 
-        public CompleteTutorialCommand(TutorialDataModel tutorialDataModel, TutorialPanelModel tutorialPanelModel, TutorialSystemModel tutorialSystemModel)
+        public CompleteTutorialCommand(TutorialDataModel tutorialDataModel, TutorialPanelModel tutorialPanelModel, TutorialSystemController tutorialSystemController)
         {
             m_tutorialDataModel = tutorialDataModel;
             m_tutorialPanelModel = tutorialPanelModel;
-            m_tutorialSystemModel = tutorialSystemModel;
+            m_tutorialSystemController = tutorialSystemController;
         }
         
         public void Execute()
@@ -26,16 +27,19 @@ namespace TutorialProject.Infrastructure.TutorialSystem.Commands
             DisposePanelView();
             
             SaveTutorial();
+            
+            Exit();
         }
 
         public void Exit()
         {
+            m_tutorialSystemController.DisposeCurrentTutorial();
         }
 
         private void DisposeCurrentEvent()
         {
-            m_tutorialSystemModel.IsTutorialActive = false;
-            m_tutorialSystemModel.CurrentTutorialID = 0;
+            m_tutorialSystemController.TutorialModel.IsTutorialActive = false;
+            m_tutorialSystemController.TutorialModel.CurrentTutorialID = 0;
         }
 
         private void DisposePanelView()

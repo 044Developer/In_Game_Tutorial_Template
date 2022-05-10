@@ -1,3 +1,4 @@
+using TutorialProject.Infrastructure.TutorialSystem.Controller;
 using TutorialProject.Infrastructure.TutorialSystem.Data.Models;
 using TutorialProject.UI.TutorialPanel.Model;
 
@@ -7,13 +8,13 @@ namespace TutorialProject.Infrastructure.TutorialSystem.Commands
     {
         private readonly TutorialDataModel m_tutorialDataModel;
         private readonly TutorialPanelModel m_tutorialPanelModel;
-        private readonly TutorialSystemModel m_tutorialSystemModel;
+        private readonly TutorialSystemController m_tutorialSystemController;
 
-        public StartTutorialCommand(TutorialDataModel tutorialDataModel, TutorialPanelModel tutorialPanelModel, TutorialSystemModel tutorialSystemModel)
+        public StartTutorialCommand(TutorialDataModel tutorialDataModel, TutorialPanelModel tutorialPanelModel, TutorialSystemController tutorialSystemController)
         {
             m_tutorialDataModel = tutorialDataModel;
             m_tutorialPanelModel = tutorialPanelModel;
-            m_tutorialSystemModel = tutorialSystemModel;
+            m_tutorialSystemController = tutorialSystemController;
             
             InitializeTutorial();
         }
@@ -25,8 +26,9 @@ namespace TutorialProject.Infrastructure.TutorialSystem.Commands
 
         private void InitializeTutorial()
         {
-            m_tutorialSystemModel.IsTutorialActive = true;
-            m_tutorialSystemModel.CurrentTutorialID = m_tutorialDataModel.TutorialID;
+            m_tutorialSystemController.TutorialModel.IsTutorialActive = true;
+            m_tutorialSystemController.TutorialModel.CurrentTutorialID = m_tutorialDataModel.TutorialID;
+            m_tutorialSystemController.TutorialModel.CurrentStepIndex = 0;
         }
 
         private void InitializePanelView()
